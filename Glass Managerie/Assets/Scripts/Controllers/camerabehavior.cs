@@ -4,7 +4,7 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 public class camerabehavior : MonoBehaviour {
-    public Camera mainCam ;
+
     public GameObject rigVR;
 
     public SteamVR_TrackedObject LEFT ;
@@ -48,13 +48,10 @@ public class camerabehavior : MonoBehaviour {
         GameObject rig = GameObject.Find("[CameraRig]");
       LEFT = rig.transform.Find("Controller (left)").GetComponent<SteamVR_TrackedObject>();
       RIGHT = rig.transform.Find("Controller (right)").GetComponent<SteamVR_TrackedObject>();
-      }else if(mainCam != null){
-        mode = "2D";
       }else{
         mode="NO CAMERA!";
       }
-      mainCam.transform.position = positions[0];
-      mainCam.transform.rotation = angles[0];
+
 
       rigVR.transform.position = positions[0];
       rigVR.transform.rotation = angles[0];
@@ -70,8 +67,7 @@ public class camerabehavior : MonoBehaviour {
         }else {
           cursor += s;
           correctAudio.Play();
-            mainCam.transform.position = positions[cursor];
-            mainCam.transform.rotation = angles[cursor];
+          
         }
 	}
 
